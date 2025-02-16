@@ -1,9 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}HomePage{% endblock title %}
+{% block title %}Tweet List{% endblock title %}
 
 {% block content %}
-This is a test page
 
-<a href="" class="btn btn-primary">Create a Tweet</a>
+<h1>Welcome to the twitter</h1>
+
+<a href="{% url 'tweet_create' %}" class="btn btn-primary m-4">Create a Tweet</a>
+
+<div class="container row gap-3">
+    {% for tweet in tweets %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{tweet.photo.url}}" class="card-img-top mt-2" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{tweet.user.username}}</h5>
+            <p class="card-text">{{tweet.text}}</p>
+            <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock content %}
