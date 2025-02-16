@@ -3,5 +3,17 @@
 {% block title %}HomePage{% endblock title %}
 
 {% block content %}
-This is a test page
+
+<h1>Welcome to the twitter</h1>
+
+<h4 class="mt-4">
+{% if form.instance.pk %} Edit Tweet {% else %} Create Tweet {% endif %}
+</h4>
+
+<form method="post" enctype="multipart/form-data" class="form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-warning" type="submit">Create Tweet</button>
+</form>
+<a href="{% url 'tweet_list' %}">Back to tweet list</a>
 {% endblock content %}
