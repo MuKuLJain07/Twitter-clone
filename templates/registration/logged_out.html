@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Log out | Twitter{% endblock title %}
+
+{% block content %}
+
+<H1 class="text-center mt-4">You have been logged out</H1>
+
+<a class="btn btn-success" href="{% url 'login' %}">Login again </a>
+
+{% endblock content %}

@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}HomePage{% endblock title %}
+{% block title %}Tweet Delete{% endblock title %}
 
 {% block content %}
-This is a test page
+
+<H1 class="text-center mt-4">Are you sure you want to delete this tweet ?</H1>
+
+<form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Delete</button>
+    <a class="btn btn-success" href="{% url 'tweet_list' %}">Cancel</a>
+</form>
+
 {% endblock content %}

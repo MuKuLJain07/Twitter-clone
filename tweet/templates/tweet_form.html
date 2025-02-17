@@ -13,7 +13,9 @@
 <form method="post" enctype="multipart/form-data" class="form">
     {% csrf_token %}
     {{form.as_p}}
-    <button class="btn btn-warning" type="submit">Create Tweet</button>
+
+    {% if form.instance.pk %} <button class="btn btn-warning" type="submit">Edit Tweet</button> {% else %} <button class="btn btn-warning" type="submit">Create Tweet</button> {% endif %}
+
 </form>
 <a href="{% url 'tweet_list' %}">Back to tweet list</a>
 {% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Login | Twitter{% endblock title %}
+
+{% block content %}
+
+<H1 class="text-center mt-4">Login</H1>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-success">Login</button>
+</form>
+<a class="btn mt-2" href="{% url 'register' %}">Don't have an account? </a>
+
+{% endblock content %}
